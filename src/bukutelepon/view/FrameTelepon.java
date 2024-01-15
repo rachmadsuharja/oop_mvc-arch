@@ -4,20 +4,23 @@
  */
 package bukutelepon.view;
 
+import bukutelepon.controller.controllerBukuTelepon;
 import javax.swing.*;
 
 /**
  *
  * @author Harja
  */
-public class bukutelepon extends javax.swing.JFrame {
-
+public class FrameTelepon extends javax.swing.JFrame {
+    controllerBukuTelepon cbt;
     /**
      * Creates new form view
      */
-    public bukutelepon() {
+    public FrameTelepon() {
         initComponents();
         this.setLocationRelativeTo(null);
+        cbt = new controllerBukuTelepon(this);
+        cbt.isiTable();
     }
 
     /**
@@ -90,14 +93,39 @@ public class bukutelepon extends javax.swing.JFrame {
         });
 
         buttonInsert.setText("INSERT");
+        buttonInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInsertActionPerformed(evt);
+            }
+        });
 
         buttonDelete.setText("DELETE");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
 
         buttonUpdate.setText("UPDATE");
+        buttonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdateActionPerformed(evt);
+            }
+        });
 
         buttonReset.setText("RESET");
+        buttonReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonResetActionPerformed(evt);
+            }
+        });
 
         buttonCariNama.setText("CARI");
+        buttonCariNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariNamaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel5.setText("*Cari Berdasarkan Nama");
@@ -113,6 +141,11 @@ public class bukutelepon extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableData);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -216,6 +249,36 @@ public class bukutelepon extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
+    private void buttonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertActionPerformed
+        cbt.insert();
+        cbt.isiTable();
+        cbt.reset();
+    }//GEN-LAST:event_buttonInsertActionPerformed
+
+    private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
+        cbt.update();
+        cbt.isiTable();
+        cbt.reset();
+    }//GEN-LAST:event_buttonUpdateActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        cbt.delete();
+        cbt.isiTable();
+        cbt.reset();
+    }//GEN-LAST:event_buttonDeleteActionPerformed
+
+    private void buttonCariNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariNamaActionPerformed
+        cbt.carinama();
+    }//GEN-LAST:event_buttonCariNamaActionPerformed
+
+    private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
+        cbt.reset();
+    }//GEN-LAST:event_buttonResetActionPerformed
+
+    private void tableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataMouseClicked
+        cbt.isiField(tableData.getSelectedRow());
+    }//GEN-LAST:event_tableDataMouseClicked
+
     /**
      * @param args the command line arguments
      * @return 
@@ -269,14 +332,18 @@ public class bukutelepon extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(bukutelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(bukutelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(bukutelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(bukutelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -285,7 +352,7 @@ public class bukutelepon extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new bukutelepon().setVisible(true);
+                new FrameTelepon().setVisible(true);
             }
         });
     }

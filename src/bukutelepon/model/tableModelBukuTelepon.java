@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
 public class tableModelBukuTelepon extends AbstractTableModel {
     List<bukutelepon> lb;
     
-    public tableModelBukuTelepon(List<bukutelepon> ib) {
+    public tableModelBukuTelepon(List<bukutelepon> lb) {
         this.lb = lb;
     }
 
