@@ -51,21 +51,85 @@ public class daoBukuTelepon implements implementBukuTelepon{
 
     @Override
     public void update(bukutelepon b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PreparedStatement stm = null;
+        try {
+            stm = connection.prepareStatement(update);
+            stm.setString(1, b.getNomer());
+            stm.setString(2, b.getNama());
+            stm.setString(3, b.getAlamat());
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stm.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    @Override
-    public void delete(bukutelepon b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete(int id) {
+        PreparedStatement stm = null;
+        try {
+            stm = connection.prepareStatement(delete);
+            stm.setInt(1, id);
+            stm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stm.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public List<bukutelepon> getALL() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<bukutelepon> lb = null;
+        try {
+            lb = new ArrayList<bukutelepon>();
+            Statement stm = connection.createStatement();
+            ResultSet rs = stm.executeQuery(select);
+            while (rs.next()) {
+                bukutelepon b = new bukutelepon();
+                b.setId(rs.getInt("id"));
+                b.setNomer(rs.getString("nomer"));
+                b.setNama(rs.getString("nama"));
+                b.setAlamat(rs.getString("alamat"));
+                lb.add(b);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return lb;
     }
 
     @Override
     public List<bukutelepon> getCariNama(String nama) {
+        List<bukutelepon> lb = null;
+        try {
+            lb = new ArrayList<bukutelepon>();
+            Statement stm = connection.createStatement();
+            ResultSet rs = stm.executeQuery(carinama);
+            while (rs.next()) {
+                bukutelepon b = new bukutelepon();
+                b.setId(rs.getInt("id"));
+                b.setNomer(rs.getString("nomer"));
+                b.setNama(rs.getString("nama"));
+                b.setAlamat(rs.getString("alamat"));
+                lb.add(b);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return lb;
+    }
+
+    @Override
+    public void delete(bukutelepon b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
