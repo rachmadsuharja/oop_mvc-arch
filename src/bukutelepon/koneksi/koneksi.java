@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.koneksi to edit this template
  */
-package koneksi;
+package bukutelepon.koneksi;
 
 import com.mysql.cj.jdbc.Driver;
 import java.sql.*;

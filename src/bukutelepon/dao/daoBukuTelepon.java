@@ -4,7 +4,7 @@
  */
 package bukutelepon.dao;
 
-import koneksi.koneksi;
+import bukutelepon.koneksi.koneksi;
 import bukutelepon.model.bukutelepon;
 import java.sql.*;
 import java.util.*;
