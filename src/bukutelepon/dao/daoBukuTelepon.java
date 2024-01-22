@@ -34,6 +34,7 @@ public class daoBukuTelepon implements implementBukuTelepon{
             stm.setString(2, b.getNama());
             stm.setString(3, b.getAlamat());
             stm.executeUpdate();
+            
             ResultSet rs = stm.getGeneratedKeys();
             while (rs.next()) {
                 b.setId(rs.getInt(1));
@@ -57,6 +58,7 @@ public class daoBukuTelepon implements implementBukuTelepon{
             stm.setString(1, b.getNomer());
             stm.setString(2, b.getNama());
             stm.setString(3, b.getAlamat());
+            stm.setInt(4, b.getId());
             stm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

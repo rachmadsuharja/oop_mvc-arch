@@ -17,19 +17,24 @@ public class tableModelBukuTelepon extends AbstractTableModel {
     public tableModelBukuTelepon(List<bukutelepon> lb) {
         this.lb = lb;
     }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public int getRowCount() {
+        return lb.size();
+    }
 
     @Override
     public int getColumnCount() {
         return 4;
     }
     
-    @Override
-    public int getRowCount() {
-        return lb.size();
-    }
 
-    
-    public String getColumnNama(int column) {
+    @Override
+    public String getColumnName(int column) {
         switch (column) {
             case 0:
                 return "ID";
