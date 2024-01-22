@@ -27,6 +27,7 @@ public class bukutelepon {
     }
     
     public void setId(Integer id) {
+        System.out.println(id);
         this.id = id;
     }
     

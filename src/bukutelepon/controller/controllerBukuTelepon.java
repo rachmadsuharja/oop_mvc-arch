@@ -56,17 +56,17 @@ public class controllerBukuTelepon {
         b.setNomer(frame.getTxtNoTelp().getText());
         b.setNama(frame.getTxtNama().getText());
         b.setAlamat(frame.getTxtAlamat().getText());
-        b.setId(Integer.parseInt(frame.getTxtID().getText())); 
-        implBukuTelepon.update (b);
+        b.setId(Integer.valueOf(frame.getTxtID().getText())); 
+        implBukuTelepon.update(b);
     }
     
     public void delete() {
-//        if (!frame.getTxtID().getText().trim().isEmpty()) {
-//            int id = Integer.parseInt(frame.getTxtID().getText());
-//            implBukuTelepon.delete(id);
-//        } else {
-//            JOptionPane.showMessageDialog (frame, "Pilih data yang akan di hapus");
-//        }
+        if (!frame.getTxtID().getText().trim().isEmpty()) {
+            int id = Integer.parseInt(frame.getTxtID().getText());
+            implBukuTelepon.delete(id);
+        } else {
+            JOptionPane.showMessageDialog (frame, "Pilih data yang akan di hapus");
+        }
     }
     public void isiTableCariNama() {
         lb = implBukuTelepon.getCariNama(frame.getTxtCariNama().getText()); 

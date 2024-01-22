@@ -69,6 +69,11 @@ public class daoBukuTelepon implements implementBukuTelepon{
         }
     }
 
+    /**
+     *
+     * @param id
+     */
+    @Override
     public void delete(int id) {
         PreparedStatement stm = null;
         try {
@@ -128,8 +133,4 @@ public class daoBukuTelepon implements implementBukuTelepon{
         return lb;
     }
 
-    @Override
-    public void delete(bukutelepon b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

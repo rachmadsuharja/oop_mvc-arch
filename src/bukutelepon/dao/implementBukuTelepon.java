@@ -14,7 +14,7 @@ import bukutelepon.model.*;
 public interface implementBukuTelepon {
     public void insert(bukutelepon b);
     public void update(bukutelepon b);
-    public void delete(bukutelepon b);
+    public void delete(int id);
     public List<bukutelepon> getALL();
     public List<bukutelepon> getCariNama(String nama);
 }
