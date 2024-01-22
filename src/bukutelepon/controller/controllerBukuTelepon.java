@@ -78,7 +78,7 @@ public class controllerBukuTelepon {
             implBukuTelepon.getCariNama(frame.getTxtCariNama().getText());
             isiTableCariNama();
         } else {
-            JOptionPane.showMessageDialog (frame, "SILAHKAN PILIH DATA");
+            JOptionPane.showMessageDialog (frame, "DATA TIDAK TERDAFTAR");
         }
     } 
 }

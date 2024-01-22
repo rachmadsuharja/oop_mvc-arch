@@ -119,8 +119,9 @@ public class daoBukuTelepon implements implementBukuTelepon{
         List<bukutelepon> lb = null;
         try {
             lb = new ArrayList<bukutelepon>();
-            Statement stm = connection.createStatement();
-            ResultSet rs = stm.executeQuery(carinama);
+            PreparedStatement st = connection.prepareStatement(carinama);
+            st.setString(1, '%' + nama + '%');
+            ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 bukutelepon b = new bukutelepon();
                 b.setId(rs.getInt("id"));
