@@ -29,7 +29,7 @@ public class tableModelBukuTelepon extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
     
 
@@ -44,6 +44,8 @@ public class tableModelBukuTelepon extends AbstractTableModel {
                 return "Nama";
             case 3:
                 return "Alamat";
+            case 4:
+                return "Hubungan";
             default:
                 return null;
         }
@@ -60,6 +62,8 @@ public class tableModelBukuTelepon extends AbstractTableModel {
                 return lb.get(row).getNama();
             case 3:
                 return lb.get(row).getAlamat();
+            case 4:
+                return lb.get(row).getHubungan();
             default:
                 return null;
         }

@@ -13,6 +13,15 @@ public class bukutelepon {
     private String nomer;
     private String nama;
     private String alamat;
+    private String hubungan;
+    
+    public String getHubungan() {
+        return hubungan;
+    }
+    
+    public void setHubungan(String hubungan) {
+        this.hubungan = hubungan;
+    }
     
     public String getAlamat() {
         return alamat;
@@ -21,6 +30,7 @@ public class bukutelepon {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
+    
     
     public Integer getId() {
         return id;

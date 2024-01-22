@@ -15,8 +15,8 @@ import java.util.*;
  */
 public class daoBukuTelepon implements implementBukuTelepon{
     Connection connection;
-    final String insert = "INSERT INTO bukutelepon (nomer, nama, alamat) VALUES (?, ?, ?);";
-    final String update = "UPDATE bukutelepon SET nomer=?, nama=?, alamat=? where id=?;";
+    final String insert = "INSERT INTO bukutelepon (nomer, nama, alamat, hubungan) VALUES (?, ?, ?, ?);";
+    final String update = "UPDATE bukutelepon SET nomer=?, nama=?, alamat=?, hubungan=? where id=?;";
     final String delete = "DELETE FROM bukutelepon where id=?;";
     final String select = "SELECT * FROM bukutelepon;";
     final String carinama = "SELECT * FROM bukutelepon where nama like ?;";
@@ -33,6 +33,7 @@ public class daoBukuTelepon implements implementBukuTelepon{
             stm.setString(1, b.getNomer());
             stm.setString(2, b.getNama());
             stm.setString(3, b.getAlamat());
+            stm.setString(4, b.getHubungan());
             stm.executeUpdate();
             
             ResultSet rs = stm.getGeneratedKeys();
@@ -58,7 +59,8 @@ public class daoBukuTelepon implements implementBukuTelepon{
             stm.setString(1, b.getNomer());
             stm.setString(2, b.getNama());
             stm.setString(3, b.getAlamat());
-            stm.setInt(4, b.getId());
+            stm.setString(4, b.getHubungan());
+            stm.setInt(5, b.getId());
             stm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,6 +108,7 @@ public class daoBukuTelepon implements implementBukuTelepon{
                 b.setNomer(rs.getString("nomer"));
                 b.setNama(rs.getString("nama"));
                 b.setAlamat(rs.getString("alamat"));
+                b.setHubungan(rs.getString("hubungan"));
                 lb.add(b);
             }
         } catch (SQLException e) {
@@ -128,6 +131,7 @@ public class daoBukuTelepon implements implementBukuTelepon{
                 b.setNomer(rs.getString("nomer"));
                 b.setNama(rs.getString("nama"));
                 b.setAlamat(rs.getString("alamat"));
+                b.setHubungan(rs.getString("hubungan"));
                 lb.add(b);
             }
         } catch (SQLException e) {

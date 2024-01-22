@@ -30,6 +30,7 @@ public class controllerBukuTelepon {
         frame.getTxtNoTelp().setText(""); 
         frame.getTxtNama().setText(""); 
         frame.getTxtAlamat().setText("");
+        frame.getTxtHubungan().setText("");
     }
     public void isiTable () {
         lb = implBukuTelepon.getALL();
@@ -40,7 +41,8 @@ public class controllerBukuTelepon {
         frame.getTxtID().setText(lb.get(row).getId().toString()); 
         frame.getTxtNoTelp().setText(lb.get (row).getNomer()); 
         frame.getTxtNama().setText(lb.get(row).getNama()); 
-        frame.getTxtAlamat ().setText(lb.get (row).getAlamat());
+        frame.getTxtAlamat().setText(lb.get (row).getAlamat());
+        frame.getTxtHubungan().setText(lb.get (row).getHubungan());
     }
     
     public void insert() {
@@ -48,6 +50,7 @@ public class controllerBukuTelepon {
         b.setNomer(frame.getTxtNoTelp().getText());
         b.setNama(frame.getTxtNama().getText());
         b.setAlamat(frame.getTxtAlamat().getText());
+        b.setHubungan(frame.getTxtHubungan().getText());
         implBukuTelepon.insert(b);
     }
     
@@ -56,6 +59,7 @@ public class controllerBukuTelepon {
         b.setNomer(frame.getTxtNoTelp().getText());
         b.setNama(frame.getTxtNama().getText());
         b.setAlamat(frame.getTxtAlamat().getText());
+        b.setHubungan(frame.getTxtHubungan().getText());
         b.setId(Integer.valueOf(frame.getTxtID().getText())); 
         implBukuTelepon.update(b);
     }
