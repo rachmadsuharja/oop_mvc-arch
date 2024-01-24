@@ -4,7 +4,8 @@
  */
 package bukutelepon.main;
 
-import bukutelepon.view.FrameTelepon;
+import bukutelepon.view.FrameHome;
+
 
 /**
  *
@@ -12,6 +13,6 @@ import bukutelepon.view.FrameTelepon;
  */
 public class Main {
     public static void main(String[] args) {
-        new FrameTelepon().setVisible(true);
+        new FrameHome().setVisible(true);
     }
 }

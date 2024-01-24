@@ -17,7 +17,7 @@ public class koneksi {
     public static Connection connection() {
         if (con == null) {
             try {
-                String url = "jdbc:mysql://localhost:3306/java_mvc";
+                String url = "jdbc:mysql://localhost:3306/buku_telepon";
                 String username = "root";
                 String password = "";
                 Class.forName("com.mysql.cj.jdbc.Driver");

@@ -5,7 +5,7 @@
 package bukutelepon.dao;
 
 import bukutelepon.koneksi.koneksi;
-import bukutelepon.model.bukutelepon;
+import bukutelepon.model.mediasosial;
 import java.sql.*;
 import java.util.*;
 
@@ -13,33 +13,33 @@ import java.util.*;
  *
  * @author Harja
  */
-public class daoBukuTelepon implements implementBukuTelepon{
+public class daoMediaSosial implements implementMediaSosial{
     Connection connection;
-    final String insert = "INSERT INTO bukutelepon (nomer, nama, alamat, hubungan) VALUES (?, ?, ?, ?);";
-    final String update = "UPDATE bukutelepon SET nomer=?, nama=?, alamat=?, hubungan=? where id=?;";
-    final String delete = "DELETE FROM bukutelepon where id=?;";
-    final String select = "SELECT * FROM bukutelepon;";
-    final String carinama = "SELECT * FROM bukutelepon where nama like ?;";
+    final String insert = "INSERT INTO mediasosial (nama, instagram, facebook, twitter) VALUES (?, ?, ?, ?);";
+    final String update = "UPDATE mediasosial SET nama=?, instagram=?, facebook=?, twitter=? where id=?;";
+    final String delete = "DELETE FROM mediasosial where id=?;";
+    final String select = "SELECT * FROM mediasosial;";
+    final String carinama = "SELECT * FROM mediasosial where nama like ?;";
     
-    public daoBukuTelepon() {
+    public daoMediaSosial() {
         connection = koneksi.connection();
     }
 
     @Override
-    public void insert(bukutelepon b) {
+    public void insert(mediasosial m) {
         PreparedStatement stm = null;
         try {
             stm = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
           
-            stm.setString(1, b.getNomer());
-            stm.setString(2, b.getNama());
-            stm.setString(3, b.getAlamat());
-            stm.setString(4, b.getHubungan());
+            stm.setString(1, m.getNama());
+            stm.setString(2, m.getInstagram());
+            stm.setString(3, m.getFacebook());
+            stm.setString(4, m.getTwitter());
             stm.executeUpdate();
             
             ResultSet rs = stm.getGeneratedKeys();
             while (rs.next()) {
-                b.setId(rs.getInt(1));
+                m.setId(rs.getInt(1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,15 +53,15 @@ public class daoBukuTelepon implements implementBukuTelepon{
     }
 
     @Override
-    public void update(bukutelepon b) {
+    public void update(mediasosial m) {
         PreparedStatement stm = null;
         try {
             stm = connection.prepareStatement(update);
-            stm.setString(1, b.getNomer());
-            stm.setString(2, b.getNama());
-            stm.setString(3, b.getAlamat());
-            stm.setString(4, b.getHubungan());
-            stm.setInt(5, b.getId());
+            stm.setString(1, m.getNama());
+            stm.setString(2, m.getInstagram());
+            stm.setString(3, m.getFacebook());
+            stm.setString(4, m.getTwitter());
+            stm.setInt(5, m.getId());
             stm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,48 +97,48 @@ public class daoBukuTelepon implements implementBukuTelepon{
     }
 
     @Override
-    public List<bukutelepon> getALL() {
-        List<bukutelepon> lb = null;
+    public List<mediasosial> getALL() {
+        List<mediasosial> lms = null;
         try {
-            lb = new ArrayList<bukutelepon>();
+            lms = new ArrayList<mediasosial>();
             Statement stm = connection.createStatement();
             ResultSet rs = stm.executeQuery(select);
             while (rs.next()) {
-                bukutelepon b = new bukutelepon();
-                b.setId(rs.getInt("id"));
-                b.setNomer(rs.getString("nomer"));
-                b.setNama(rs.getString("nama"));
-                b.setAlamat(rs.getString("alamat"));
-                b.setHubungan(rs.getString("hubungan"));
-                lb.add(b);
+                mediasosial m = new mediasosial();
+                m.setId(rs.getInt("id"));
+                m.setNama(rs.getString("nama"));
+                m.setInstagram(rs.getString("instagram"));
+                m.setFacebook(rs.getString("facebook"));
+                m.setTwitter(rs.getString("twitter"));
+                lms.add(m);
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return lb;
+        return lms;
     }
 
     @Override
-    public List<bukutelepon> getCariNama(String nama) {
-        List<bukutelepon> lb = null;
+    public List<mediasosial> getCariNama(String nama) {
+        List<mediasosial> lms = null;
         try {
-            lb = new ArrayList<bukutelepon>();
+            lms = new ArrayList<mediasosial>();
             PreparedStatement st = connection.prepareStatement(carinama);
             st.setString(1, '%' + nama + '%');
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                bukutelepon b = new bukutelepon();
-                b.setId(rs.getInt("id"));
-                b.setNomer(rs.getString("nomer"));
-                b.setNama(rs.getString("nama"));
-                b.setAlamat(rs.getString("alamat"));
-                b.setHubungan(rs.getString("hubungan"));
-                lb.add(b);
+                mediasosial m = new mediasosial();
+                m.setId(rs.getInt("id"));
+                m.setNama(rs.getString("nama"));
+                m.setInstagram(rs.getString("instagram"));
+                m.setFacebook(rs.getString("facebook"));
+                m.setTwitter(rs.getString("twitter"));
+                lms.add(m);
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return lb;
+        return lms;
     }
 
 }

@@ -4,23 +4,23 @@
  */
 package bukutelepon.view;
 
-import bukutelepon.controller.controllerBukuTelepon;
+import bukutelepon.controller.controllerMediaSosial;
 import javax.swing.*;
 
 /**
  *
  * @author Harja
  */
-public class FrameTelepon extends javax.swing.JFrame {
-    controllerBukuTelepon cbt;
+public class FrameMedsos extends javax.swing.JFrame {
+    controllerMediaSosial cms;
     /**
      * Creates new form view
      */
-    public FrameTelepon() {
+    public FrameMedsos() {
         initComponents();
         this.setLocationRelativeTo(null);
-        cbt = new controllerBukuTelepon(this);
-        cbt.isiTable();
+        cms = new controllerMediaSosial(this);
+        cms.isiTable();
     }
 
     /**
@@ -39,9 +39,9 @@ public class FrameTelepon extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        txtNoTelp = new javax.swing.JTextField();
         txtNama = new javax.swing.JTextField();
-        txtAlamat = new javax.swing.JTextField();
+        txtInstagram = new javax.swing.JTextField();
+        txtFacebook = new javax.swing.JTextField();
         buttonInsert = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
         buttonUpdate = new javax.swing.JButton();
@@ -51,7 +51,7 @@ public class FrameTelepon extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableData = new javax.swing.JTable();
-        txtHubungan = new javax.swing.JTextField();
+        txtTwitter = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         buttonInsert1 = new javax.swing.JButton();
 
@@ -74,13 +74,13 @@ public class FrameTelepon extends javax.swing.JFrame {
         jLabel1.setText("ID");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("NO.TELP");
+        jLabel2.setText("NAMA");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("NAMA");
+        jLabel3.setText("INSTAGRAM");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("ALAMAT");
+        jLabel4.setText("FACEBOOK");
 
         txtID.setEnabled(false);
         txtID.addActionListener(new java.awt.event.ActionListener() {
@@ -89,9 +89,9 @@ public class FrameTelepon extends javax.swing.JFrame {
             }
         });
 
-        txtAlamat.addActionListener(new java.awt.event.ActionListener() {
+        txtFacebook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAlamatActionPerformed(evt);
+                txtFacebookActionPerformed(evt);
             }
         });
 
@@ -151,14 +151,14 @@ public class FrameTelepon extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableData);
 
-        txtHubungan.addActionListener(new java.awt.event.ActionListener() {
+        txtTwitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHubunganActionPerformed(evt);
+                txtTwitterActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setText("HUBUNGAN");
+        jLabel6.setText("TWITTER");
 
         buttonInsert1.setText("HOME");
         buttonInsert1.addActionListener(new java.awt.event.ActionListener() {
@@ -197,9 +197,9 @@ public class FrameTelepon extends javax.swing.JFrame {
                                 .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
                                 .addComponent(buttonInsert1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtNoTelp, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNama, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAlamat, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtInstagram, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFacebook, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(buttonInsert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -208,7 +208,7 @@ public class FrameTelepon extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(buttonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtHubungan, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtTwitter, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(65, 65, 65))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,18 +222,18 @@ public class FrameTelepon extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNoTelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
                     .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(txtInstagram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtHubungan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTwitter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,48 +270,48 @@ public class FrameTelepon extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlamatActionPerformed
+    private void txtFacebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacebookActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAlamatActionPerformed
+    }//GEN-LAST:event_txtFacebookActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
     private void buttonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertActionPerformed
-        cbt.insert();
-        cbt.isiTable();
-        cbt.reset();
+        cms.insert();
+        cms.isiTable();
+        cms.reset();
     }//GEN-LAST:event_buttonInsertActionPerformed
 
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
-        cbt.update();
-        cbt.isiTable();
-        cbt.reset();
+        cms.update();
+        cms.isiTable();
+        cms.reset();
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
-        cbt.delete();
-        cbt.isiTable();
-        cbt.reset();
+        cms.delete();
+        cms.isiTable();
+        cms.reset();
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonCariNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariNamaActionPerformed
-        cbt.carinama();
+        cms.carinama();
     }//GEN-LAST:event_buttonCariNamaActionPerformed
 
     private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
-        cbt.reset();
-        cbt.isiTable();
+        cms.reset();
+        cms.isiTable();
     }//GEN-LAST:event_buttonResetActionPerformed
 
     private void tableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataMouseClicked
-        cbt.isiField(tableData.getSelectedRow());
+        cms.isiField(tableData.getSelectedRow());
     }//GEN-LAST:event_tableDataMouseClicked
 
-    private void txtHubunganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHubunganActionPerformed
+    private void txtTwitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTwitterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtHubunganActionPerformed
+    }//GEN-LAST:event_txtTwitterActionPerformed
 
     private void buttonInsert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsert1ActionPerformed
         FrameHome fh = new FrameHome();
@@ -327,17 +327,17 @@ public class FrameTelepon extends javax.swing.JFrame {
     public JTextField getTxtID() {
         return txtID;
     }
-    public JTextField getTxtNoTelp() {
-        return txtNoTelp;
-    }
     public JTextField getTxtNama() {
         return txtNama;
     }
-    public JTextField getTxtAlamat() {
-        return txtAlamat;
+    public JTextField getTxtInstagram() {
+        return txtInstagram;
     }
-    public JTextField getTxtHubungan() {
-        return txtHubungan;
+    public JTextField getTxtFacebook() {
+        return txtFacebook;
+    }
+    public JTextField getTxtTwitter() {
+        return txtTwitter;
     }
     public JTable getTableData() {
         return tableData;
@@ -375,14 +375,38 @@ public class FrameTelepon extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameMedsos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameMedsos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameMedsos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameTelepon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameMedsos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -395,7 +419,7 @@ public class FrameTelepon extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameTelepon().setVisible(true);
+                new FrameMedsos().setVisible(true);
             }
         });
     }
@@ -417,11 +441,11 @@ public class FrameTelepon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableData;
-    private javax.swing.JTextField txtAlamat;
     private javax.swing.JTextField txtCariNama;
-    private javax.swing.JTextField txtHubungan;
+    private javax.swing.JTextField txtFacebook;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtInstagram;
     private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtNoTelp;
+    private javax.swing.JTextField txtTwitter;
     // End of variables declaration//GEN-END:variables
 }
