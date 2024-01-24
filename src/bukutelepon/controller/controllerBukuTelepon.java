@@ -46,22 +46,41 @@ public class controllerBukuTelepon {
     }
     
     public void insert() {
-        bukutelepon b = new bukutelepon ();
-        b.setNomer(frame.getTxtNoTelp().getText());
-        b.setNama(frame.getTxtNama().getText());
-        b.setAlamat(frame.getTxtAlamat().getText());
-        b.setHubungan(frame.getTxtHubungan().getText());
-        implBukuTelepon.insert(b);
+        String nomer = frame.getTxtNoTelp().getText();
+        String nama = frame.getTxtNama().getText();
+        String alamat = frame.getTxtAlamat().getText();
+        String hubungan = frame.getTxtHubungan().getText();
+
+        if (nomer.isEmpty() || nama.isEmpty() || alamat.isEmpty() || hubungan.isEmpty()) {
+            JOptionPane.showMessageDialog(frame, "Harap isi semua kolom teks.", "Gagal Menambahkan Data", JOptionPane.ERROR_MESSAGE);
+        } else {
+            bukutelepon b = new bukutelepon();
+            b.setNomer(nomer);
+            b.setNama(nama);
+            b.setAlamat(alamat);
+            b.setHubungan(hubungan);
+            implBukuTelepon.insert(b);
+        }
     }
     
     public void update () {
-        bukutelepon b = new bukutelepon();
-        b.setNomer(frame.getTxtNoTelp().getText());
-        b.setNama(frame.getTxtNama().getText());
-        b.setAlamat(frame.getTxtAlamat().getText());
-        b.setHubungan(frame.getTxtHubungan().getText());
-        b.setId(Integer.valueOf(frame.getTxtID().getText())); 
-        implBukuTelepon.update(b);
+        int id = Integer.valueOf(frame.getTxtID().getText());
+        String nomer = frame.getTxtNoTelp().getText();
+        String nama = frame.getTxtNama().getText();
+        String alamat = frame.getTxtAlamat().getText();
+        String hubungan = frame.getTxtHubungan().getText();
+
+        if (nomer.isEmpty() || nama.isEmpty() || alamat.isEmpty() || hubungan.isEmpty()) {
+            JOptionPane.showMessageDialog(frame, "Harap isi semua kolom teks.", "Gagal Mengubah Data", JOptionPane.ERROR_MESSAGE);
+        } else {
+            bukutelepon b = new bukutelepon();
+            b.setNomer(nomer);
+            b.setNama(nama);
+            b.setAlamat(alamat);
+            b.setHubungan(hubungan);
+            b.setId(id); 
+            implBukuTelepon.update(b);
+        }
     }
     
     public void delete() {
