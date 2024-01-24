@@ -64,7 +64,6 @@ public class controllerBukuTelepon {
     }
     
     public void update () {
-        int id = Integer.valueOf(frame.getTxtID().getText());
         String nomer = frame.getTxtNoTelp().getText();
         String nama = frame.getTxtNama().getText();
         String alamat = frame.getTxtAlamat().getText();
@@ -73,6 +72,7 @@ public class controllerBukuTelepon {
         if (nomer.isEmpty() || nama.isEmpty() || alamat.isEmpty() || hubungan.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "Harap isi semua kolom teks.", "Gagal Mengubah Data", JOptionPane.ERROR_MESSAGE);
         } else {
+            int id = Integer.valueOf(frame.getTxtID().getText());
             bukutelepon b = new bukutelepon();
             b.setNomer(nomer);
             b.setNama(nama);
